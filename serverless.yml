@@ -1,0 +1,22 @@
+app: botsy
+service: botsy
+provider:
+  name: aws
+  runtime: python3.6
+  cfnRole: ${file(./serverless.env.yml):dev.CLOUD_FORMATION_ARN}
+  memorySize: 128
+  timeout: 3
+  environment:
+    BOT_TOKEN: ${file(./serverless.env.yml):dev.BOT_TOKEN}
+    SLACK_SIGNING_SECRET: ${file(./serverless.env.yml):dev.SLACK_SIGNING_SECRET}
+
+functions:
+  statusBot:
+    handler: index.handler
+    name: botsy
+    description: 'Slack bot that repeats whatever is direct messaged to it to the status-questions channel,
+    allowing anonymous questions.'
+    events:
+      - http:
+          path: botsy
+          method: post
