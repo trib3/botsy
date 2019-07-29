@@ -9,6 +9,10 @@ provider:
   environment:
     BOT_TOKEN: ${file(./serverless.env.yml):dev.BOT_TOKEN}
     SLACK_SIGNING_SECRET: ${file(./serverless.env.yml):dev.SLACK_SIGNING_SECRET}
+    SLACK_OAUTH: ${file(./serverless.env.yml):dev.SLACK_OAUTH}
+    CREATOR_ID: ${file(./serverless.env.yml):dev.CREATOR_ID}
+    BOT_ID: ${file(./serverless.env.yml):dev.BOT_ID}
+    LEARNINGS_CHANNEL: ${file(./serverless.env.yml):dev.LEARNINGS_CHANNEL}
 
 functions:
   botsy:

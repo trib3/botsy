@@ -92,7 +92,6 @@ def handler(event, context):
             event_type = event_info["type"]
 
             if event_type == 'app_mention' or event_type == 'message':
-                get_channel('botsy-learnings')
                 channel_id = event_info["channel"]
                 user = event_info["user"]
                 ephemeral_message(channel_id, user, LEARN_OR_TEACH)

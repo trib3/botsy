@@ -89,7 +89,6 @@ def get_channel(channel_name):
         'limit': 1000,
         'types': 'public_channel,private_channel'
     }).json()
-    print(f'how are you? {response}')
     channels = response['channels']
 
     channel_match = next((channel for channel in channels if
@@ -160,7 +159,7 @@ def create_dialog(trigger_id, form):
         'token': SLACK_OAUTH_TOKEN,
         'trigger_id': trigger_id,
         'dialog': json.dumps(form)
-    })
+    }).json()
 
 
 """
