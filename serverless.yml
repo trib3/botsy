@@ -11,11 +11,10 @@ provider:
     SLACK_SIGNING_SECRET: ${file(./serverless.env.yml):dev.SLACK_SIGNING_SECRET}
 
 functions:
-  statusBot:
+  botsy:
     handler: index.handler
     name: botsy
-    description: 'Slack bot that repeats whatever is direct messaged to it to the status-questions channel,
-    allowing anonymous questions.'
+    description: 'Slack bot that uses AWS Lambda and API Gateway to connect skill seekers with skill havers.'
     events:
       - http:
           path: botsy
