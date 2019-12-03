@@ -1,7 +1,7 @@
 import os
 import json
+import requests
 
-from botocore.vendored import requests
 from helper_functions import generate_channel_name
 
 CREATOR_ID = os.environ.get('CREATOR_ID')
